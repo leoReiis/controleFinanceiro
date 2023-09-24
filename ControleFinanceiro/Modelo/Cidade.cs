@@ -17,5 +17,11 @@ namespace ControleFinanceiro.Modelo
             this.nome = nome;
             this.estadosigla = estadosigla;
         }
+
+        public Cidade(string nome, string estadosigla)
+        {
+            this.nome = nome;
+            this.estadosigla = estadosigla;
+        }
     }
 }

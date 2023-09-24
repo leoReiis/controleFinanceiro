@@ -30,22 +30,22 @@ namespace ControleFinanceiro
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            List <Estado> lista =EstadoDB.getEstados(conexao);
+            List <Cidade> lista =CidadeDB.getCidades(conexao);
             richTBLista.Clear();
             for(int i = 0; i < lista.Count; i++)
             {
-                Estado estado = lista[i];
-                richTBLista.AppendText("Estado " + estado.estadosigla + " - " + estado.nome + "\n");
+                Cidade cidade = lista[i];
+                richTBLista.AppendText("Cidade " + cidade.cidadeid + " - " + cidade.nome + " - " + cidade.estadosigla + "\n");
             }
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            Estado estado = new Estado("BA", "Bahia");
-            bool realizou = EstadoDB.setIncluiEstado(conexao, estado);
+            Cidade cidade = new Cidade("Barbacena", "MG");
+            bool realizou = CidadeDB.setIncluiCidade(conexao, cidade);
             if (realizou)
             {
-                MessageBox.Show("Estado incluido com sucesso");
+                MessageBox.Show("Sucesso");
             } else
             {
                 MessageBox.Show("Erro ao incluir");
@@ -55,8 +55,8 @@ namespace ControleFinanceiro
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Estado estado = new Estado("BA", "Bahia");
-            bool realizou = EstadoDB.setAlteraEstado(conexao, estado);
+            Cidade cidade = new Cidade(2, "Barbacena", "MG");
+            bool realizou = CidadeDB.setAlteraCidade(conexao, cidade);
             if (realizou) {
                 MessageBox.Show("Alterado");
             } else
@@ -67,7 +67,7 @@ namespace ControleFinanceiro
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            bool realizou = EstadoDB.setExcluiEstado(conexao, "BA");
+            bool realizou = CidadeDB.setExcluirCidade(conexao, 2);
             if (realizou)
             {
                 MessageBox.Show("Excluiu com sucesso");

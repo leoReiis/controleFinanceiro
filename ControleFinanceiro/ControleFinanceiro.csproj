@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controle\CidadeDB.cs" />
     <Compile Include="Controle\Conexao.cs" />
     <Compile Include="Controle\EstadoDB.cs" />
     <Compile Include="FrmPrincipal.cs">
